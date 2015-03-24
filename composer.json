@@ -1,0 +1,21 @@
+{
+    "name": "devleaks/yii2-weather",
+    "description": "Widget displays weather information for current location if allowed.",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","weather"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pierre M",
+            "email": "devleaks.be@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "devleaks\\weather\\": ""
+        }
+    }
+}
