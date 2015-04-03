@@ -10,7 +10,7 @@ use yii\web\AssetBundle;
  */
 class WeatherAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/devleaks/weather';
+    public $sourcePath = '@vendor/devleaks/yii2-weather';
 
     public $css = [
         'css/weather.css',

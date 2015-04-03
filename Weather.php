@@ -61,7 +61,7 @@ class Weather extends Widget {
     public function run()
     {
         $this->registerAssets();
-		$this->renderFile('views/weather.html');
+		echo $this->renderFile('@vendor/devleaks/yii2-weather/views/weather.html');
     }
 
     /**
