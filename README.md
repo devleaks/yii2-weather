@@ -28,4 +28,4 @@ Usage
 Once the extension is installed, simply use it in your code by  :
 
 ```php
-<?= \devleaks\weather\AutoloadExample::widget(); ?>```
+<?= \devleaks\weather\Weather::widget(); ?>```
