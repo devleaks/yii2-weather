@@ -10,15 +10,15 @@ use yii\web\AssetBundle;
  */
 class WeatherAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/devleaks/yii2-weather';
+    public $sourcePath = '@vendor/bower';
 
     public $css = [
-        'css/weather.css',
-		'http://fonts.googleapis.com/css?family=Open+Sans:600,400',
+        'weather-widget/dist/weather-widget.css',
     ];
-		
+
     public $js = [
-        'js/weather.js',
+		'geolocate-lite/geo-lite.js',
+        'weather-widget/dist/weather-widget.js',
     ];
 
     public $depends = [

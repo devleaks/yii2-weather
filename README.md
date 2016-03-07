@@ -28,4 +28,35 @@ Usage
 Once the extension is installed, simply use it in your code by  :
 
 ```php
-<?= \devleaks\weather\Weather::widget(); ?>```
+<div id="weather"></div>
+
+<?= Weather::widget([
+		'id' => 'weather',
+		'pluginOptions' => [
+			'celsius' => true,
+			'imgPath' => '/gipadmin/images/weather-widget/',
+			'key' => Yii::$app->params['FORECAST_APIKEY'],
+			'lat' => Yii::$app->params['FORECAST_DEFAULT_LAT'],
+			'lon' => Yii::$app->params['FORECAST_DEFAULT_LON'],
+		]])
+?>
+```
+
+and add your parameters in params.php:
+
+```
+return [
+	...
+	/* Forecast.io */
+	'FORECAST_APIKEY' => '*** YOUR KEY HERE ***',
+	'FORECAST_DEFAULT_LAT' => 50.8449933,
+	'FORECAST_DEFAULT_LON' =>  4.3499778,
+	...
+];
+
+```
+
+See Also
+--------
+
+https://github.com/BlueBiteLLC/service-weather-js

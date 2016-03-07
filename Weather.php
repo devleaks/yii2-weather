@@ -18,11 +18,6 @@ use yii\base\Widget;
  * @author Pierre M <devleaks.be@gmail.com>
  */
 class Weather extends Widget {
-	const UNIT_FARENHEIT = 'f';
-	const UNIT_CELSIUS = 'c';
-	
-	const DEFAULT_CITY = 'Brussels';
-
     /**
      * @var array the HTML attributes for the div tag.
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
@@ -45,12 +40,6 @@ class Weather extends Widget {
         if (!isset($this->options['id'])) {
             $this->options['id'] = $this->getId();
         }
-        if (!isset($this->options['city'])) {
-            $this->options['city'] = self::DEFAULT_CITY;
-        }
-        if (!isset($this->options['unit'])) {
-            $this->options['unit'] = self::UNIT_CELSIUS;
-        }
         parent::init();
     }
 
@@ -61,7 +50,6 @@ class Weather extends Widget {
     public function run()
     {
         $this->registerAssets();
-		echo $this->renderFile('@vendor/devleaks/yii2-weather/views/weather.html');
     }
 
     /**
@@ -71,10 +59,8 @@ class Weather extends Widget {
     {
         $view = $this->getView();
         WeatherAsset::register($view);
-		$js = [];
-        $js[] = 'selectedCity = "'.$this->options['city'] . '";';
-        $js[] = 'unit = "'.$this->options['unit'] . '";';
-        $view->registerJs(implode("\n", $js), $view::POS_END);
+        $js = '$("#' . $this->options['id'] . '").weatherWidget(' . $this->getPluginOptions() . ');';
+        $view->registerJs($js, $view::POS_END);
     }
 
     /**
