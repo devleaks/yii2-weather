@@ -6,6 +6,7 @@ use yii\base\InvalidConfigException;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\base\Widget;
+use Yii;
 
 /**
  * Weather js+css app from http://codepen.io/Enzo_Eghermanne/details/NPByRG
@@ -59,6 +60,10 @@ class Weather extends Widget {
     {
         $view = $this->getView();
         WeatherAsset::register($view);
+		if(!isset($this->pluginOptions['imgPath'])) {
+			$images = WeatherDevleaksImageAsset::register($view);
+			$this->pluginOptions['imgPath'] = $images->baseUrl.'/images/';
+		}
         $js = '$("#' . $this->options['id'] . '").weatherWidget(' . $this->getPluginOptions() . ');';
         $view->registerJs($js, $view::POS_END);
     }
